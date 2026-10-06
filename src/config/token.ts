@@ -74,7 +74,7 @@ export const tokenConfig: TokenConfig = {
   swapUrl: null,
   chartUrl: null,
   xUrl: 'https://x.com/nwdog_eth',
-  telegramGroupUrl: 'https://t.me/nwdog_eth',
+  telegramGroupUrl: 'https://t.me/nigthwatchdog',
   telegramChannelUrl: null,
   docsUrl: null,
   siteUrl: 'https://nwdog.world',
