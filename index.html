@@ -3,30 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050912" />
-    <title>Super Intelligence Intern ($SIINTERN) | The Dumbest Intern in Super Intelligence</title>
+    <meta name="theme-color" content="#081A30" />
+    <title>Night Watch Dog ($NWDOG) | The Night Shift Starts Here</title>
     <meta
       name="description"
-      content="Meet $SIINTERN — the enthusiastic intern accidentally hired to help with AI, robots, rockets and Ethereum. What could possibly go wrong?"
+      content="Night Watch Dog ($NWDOG) is an independent Ethereum meme project about a fictional safety-vest Shiba. During prelaunch, the contract and trading links are not published."
     />
-    <meta property="og:title" content="Super Intelligence Intern ($SIINTERN) | The Dumbest Intern in Super Intelligence" />
+    <meta property="og:title" content="Night Watch Dog ($NWDOG) | The Night Shift Starts Here" />
     <meta
       property="og:description"
-      content="Meet $SIINTERN — the enthusiastic intern accidentally hired to help with AI, robots, rockets and Ethereum. What could possibly go wrong?"
+      content="An independent Ethereum meme project about a tiny dog on the robotaxi night shift. No affiliation with Elon Musk, Tesla, or SpaceX."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="%BASE_URL%assets/siintern-banner-1100x520.png" />
-    <meta property="og:image:alt" content="Super Intelligence Intern mascot beside the $SIINTERN wordmark." />
+    <meta property="og:image" content="__OG_IMAGE__" />
+    <meta
+      property="og:image:alt"
+      content="Night Watch Dog mascot in a safety vest and night-vision goggles, pointing forward over a night city."
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Super Intelligence Intern ($SIINTERN) | The Dumbest Intern in Super Intelligence" />
+    <meta name="twitter:title" content="Night Watch Dog ($NWDOG) | The Night Shift Starts Here" />
     <meta
       name="twitter:description"
-      content="Meet $SIINTERN — the enthusiastic intern accidentally hired to help with AI, robots, rockets and Ethereum. What could possibly go wrong?"
+      content="An independent Ethereum meme project. Prelaunch site for the Night Watch Dog character."
     />
-    <meta name="twitter:image" content="%BASE_URL%assets/siintern-banner-1100x520.png" />
-    <link rel="icon" type="image/png" href="%BASE_URL%assets/siintern-logo-circular-transparent.png" />
-    <link rel="apple-touch-icon" href="%BASE_URL%assets/siintern-logo-circular-transparent.png" />
-    <link rel="preload" as="image" href="%BASE_URL%assets/siintern-hero-character-transparent.png" />
+    <meta name="twitter:image" content="__OG_IMAGE__" />
+    <!--canonical-->
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch.png" />
+    <link rel="preload" as="image" href="/assets/nwdog-logo-full.webp" type="image/webp" />
+    <script>
+      try {
+        if (localStorage.getItem('nwdog-night-vision') === '1') {
+          document.documentElement.setAttribute('data-vision', 'night');
+        }
+      } catch (error) {
+        /* Storage can be blocked. Day mode remains available. */
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

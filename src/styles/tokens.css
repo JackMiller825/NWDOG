@@ -1,0 +1,36 @@
+:root {
+  --navy: #081a30;
+  --lime: #bef526;
+  --paper: #fff0c7;
+  --orange: #f79a28;
+  --slate: #a6b6c8;
+  --ink: #081a30;
+  --bg: #081a30;
+  --text: #fff0c7;
+  --muted: #a6b6c8;
+  --panel: #fff0c7;
+  --panel-text: #081a30;
+  --panel-muted: #24384c;
+  --focus: #bef526;
+  --header-h: 5.5rem;
+  --max: 75rem;
+  --font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-vision='night'] {
+  --navy: #07140e;
+  --bg: #07140e;
+  --text: #f4ffe8;
+  --lime: #c8f56a;
+  --orange: #d6e86a;
+  --slate: #d7e8c8;
+  --muted: #d7e8c8;
+  --panel: #f3f8d8;
+  --panel-text: #102216;
+  --panel-muted: #2a4634;
+  --ink: #102216;
+  --focus: #c8f56a;
+  color-scheme: dark;
+}

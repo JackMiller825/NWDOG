@@ -1,8 +1,8 @@
-# Super Intelligence Intern
+# Night Watch Dog
 
-Single-page site for Super Intelligence Intern ($SIINTERN), a fictional Ethereum meme-token about an enthusiastic intern who should not have production access.
+Prelaunch website for Night Watch Dog ($NWDOG), an independent Ethereum meme project. The dog is a fictional character. This site explains the idea, shows only published token facts, and sends people to Uniswap only when trading is explicitly configured.
 
-The character and story are entertainment. The project is not affiliated with Tesla, SpaceX, xAI, the Ethereum Foundation, or any person shown or referenced in the art.
+Night Watch Dog is an independent meme project. It is not affiliated with or endorsed by Elon Musk, Tesla, or SpaceX.
 
 ## Scripts
 
@@ -16,16 +16,66 @@ npm run typecheck
 npm test
 ```
 
-## Token facts
+`npm run assets` rebuilds WebP, AVIF, PNG, favicon, and social-preview files from `public/assets/originals`.
 
-Edit `src/config/token.ts`. Unknown values stay as placeholders:
+## Go live
 
-- `contractAddress: 'COMING_SOON'` shows **Contract address: Coming soon**. Do not put a sample address here.
-- Link fields set to `#` render as disabled **Coming soon** actions.
-- Liquidity, ownership, and tax strings are displayed exactly as written. Leave them as `Coming Soon` until they are real public facts.
+Buy buttons stay off until all three of these are true in `src/config/token.ts`:
+
+1. `launchStatus` is `"live"`.
+2. `contractAddress` is a real Ethereum address. Mixed-case addresses must match their EIP-55 checksum. All-lowercase and all-uppercase hex are accepted because they do not carry a checksum. A valid address is not proof the token is authentic.
+3. `swapUrl` is an `https://app.uniswap.org` swap link whose `chain` is `ethereum` and whose `outputCurrency` is that same address.
+
+Use one of these shapes, from Uniswap's custom-linking and embed docs (reviewed October 5, 2026):
+
+```text
+https://app.uniswap.org/swap?chain=ethereum&inputCurrency=ETH&outputCurrency=0xYourAddress
+https://app.uniswap.org/#/swap?chain=ethereum&inputCurrency=ETH&outputCurrency=0xYourAddress
+```
+
+`chainId` must stay `1`. A wrong chain, a different output token, a non-HTTPS link, or any host other than `app.uniswap.org` keeps the buy buttons off. The site will not invent a Uniswap link from an address, and it will not show a sample `0x` address.
+
+Leave unknown supply, tax, allocation, liquidity, ownership, admin, audit, chart, and social fields as `null`. Unknown tax is not zero. `siteUrl` is `https://nwdog.world`, which adds the canonical URL and `sitemap.xml`.
 
 ## Deploy
 
-Static site. No backend, wallet, or API key.
+This is a static site. No wallet, API key, or server is required.
 
-Pushes to `main` build `dist` and publish with GitHub Pages (`.github/workflows/pages.yml`). The public site is [https://siintern.site/](https://siintern.site/). `public/CNAME` is `siintern.site`, and the workflow builds with `VITE_BASE=/`.
+Pushes to `main` run `.github/workflows/pages.yml`, build `dist`, and publish it with GitHub Pages. The custom domain is `nwdog.world` (`public/CNAME`). The live site is [https://nwdog.world/](https://nwdog.world/).
+
+```bash
+npm ci
+npm run build
+```
+
+`npm run preview` serves the same `dist` folder locally. Anchors stay on one page, so a single-page fallback is unnecessary.
+
+## Art
+
+Supplied and used:
+
+- Full badge (name and ticker) → `public/assets/nwdog-logo-full.png`
+- Wide banner → `public/assets/nwdog-banner.jpg`
+- Telegram banner → `public/assets/nwdog-tg-banner.jpg`
+
+Originals are in `public/assets/originals`. The hero uses the full badge inside a comic frame. A separate character cutout was not supplied.
+
+Still missing. Drop these in without renaming if you want the header and story to use them:
+
+- `public/assets/nwdog-logo-name.png` (name only)
+- `public/assets/nwdog-logo-mark.png` (no text, for the header and favicon)
+
+Until the no-text mark exists, the header and favicon use the full badge scaled down. Those files are not placeholders drawn to look like finished art.
+
+## Tests
+
+`npm test` covers purchase gating (prelaunch, missing address, invalid address, bad checksum, wrong token, wrong chain, unsafe URL, valid live state), exact-address copy, mobile menu escape and focus return, night-vision storage failure, and fan-badge PNG export.
+
+## Owner inputs still open
+
+- Final contract address
+- Confirmed Ethereum Uniswap swap URL
+- Circulating supply and allocations
+- Liquidity, lock, burn, ownership, admin, and audit evidence URLs
+- `launchStatus: "live"` when trading should actually be offered
+- The two missing badge files above, if you want them
